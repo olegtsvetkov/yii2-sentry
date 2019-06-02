@@ -1,0 +1,13 @@
+{
+    "name": "olegtsvetkov/yii2-sentry",
+    "description": "Yii2 integration for Sentry",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Oleg Tsvetkov",
+            "email": "me@olegtsvetkov.com"
+        }
+    ],
+    "require": {}
+}
