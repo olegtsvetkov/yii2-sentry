@@ -9,5 +9,23 @@
             "email": "me@olegtsvetkov.com"
         }
     ],
-    "require": {}
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.1",
+        "sentry/sdk": "^2.0",
+        "yiisoft/yii2": "~2.0.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "OlegTsvetkov\\Yii2\\Sentry\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }
