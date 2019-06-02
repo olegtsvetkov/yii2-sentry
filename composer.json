@@ -1,6 +1,7 @@
 {
     "name": "olegtsvetkov/yii2-sentry",
     "description": "Yii2 integration for Sentry",
+    "keywords": ["logging", "errors", "yii2", "sentry"],
     "type": "library",
     "license": "BSD-3-Clause",
     "authors": [
