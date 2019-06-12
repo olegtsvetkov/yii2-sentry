@@ -10,7 +10,13 @@ Inspired by official [sentry/sentry-simfony](https://github.com/getsentry/sentry
 The preferred way to install this package is through [composer](http://getcomposer.org/download/):
 
 ```bash
-composer require olegtsvetkov/yii2-symfony:^1.0
+composer require olegtsvetkov/yii2-sentry:^1.0
+```
+
+Package doesn't provide any HTTP transport out of the box. To install package with a recommended HTTP client do:
+
+```bash
+composer require olegtsvetkov/yii2-sentry:^1.0 php-http/curl-client:^1.0|^2.0 http-interop/http-factory-guzzle:^1.0
 ```
 
 ## Basic Usage
@@ -57,7 +63,7 @@ logged to Sentry.
 It is highly recommended to blacklist all Yii's exceptions for 40x responses, because they are used for handling 
 requests and doesn't indicate about problems of any kind.
 
-Out-of-box component provides detailed information about request
+Out of the box component provides detailed information about request
 
 
 ## Advanced usage

@@ -15,7 +15,7 @@
     },
     "require": {
         "php": "^7.1",
-        "sentry/sdk": "^2.0",
+        "sentry/sentry": "^2.0.1",
         "yiisoft/yii2": "~2.0.14"
     },
     "autoload": {
