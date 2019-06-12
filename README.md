@@ -43,7 +43,7 @@ return [
         'log' => [
             'targets' => [
                 [
-                    'class' => 'OlegTsvetkov\Yii2\Sentry\LogTarget',
+                    'class' => OlegTsvetkov\Yii2\Sentry\LogTarget::class,
                     'levels' => ['error', 'warning'],
                     'except' => [
                         'yii\web\HttpException:40*',
@@ -63,8 +63,23 @@ logged to Sentry.
 It is highly recommended to blacklist all Yii's exceptions for 40x responses, because they are used for handling 
 requests and doesn't indicate about problems of any kind.
 
-Out of the box component provides detailed information about request
+Out of the box component provides detailed information about request, such as:
 
+* Request Method
+* Request URL (including query string)
+* Request Headers
+* Request Body
+* Resolved route (goes to tags)
+* User ID for logged in
+* Visitor's IP address
+* Visitor's Cookies (with send default PII enabled)
+* App environment (taken from `YII_ENV`)
+* Stack trace for exception
+
+### Important nuance about LogTarget
+
+Bundled in Log Target will send **only one** message to Sentry per request. This message will be based on the log entry
+with highest severity level. All other entries will go to the extra field "logs" of message 
 
 ## Advanced usage
 
