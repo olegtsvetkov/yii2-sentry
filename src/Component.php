@@ -65,7 +65,7 @@ class Component extends \yii\base\Component implements BootstrapInterface
             'integrations' => [],
             // By default Sentry enabled ExceptionListenerIntegration, ErrorListenerIntegration and RequestIntegration
             // integrations. ExceptionListenerIntegration defines a global exception handler as well as Yii.
-            // Sentry's handler is always being called first, because it is defined later then Yii's one. This leads
+            // Sentry's handler is always being called first, because it was defined later then Yii's one. This leads
             // to report duplication when handling any exception, that is supposed to be handled by Yii.
             'default_integrations' => false,
         ], $this->sentrySettings));

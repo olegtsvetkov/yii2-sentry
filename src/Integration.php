@@ -97,7 +97,7 @@ class Integration extends BaseObject implements IntegrationInterface
             'query_string' => $request->getQueryString(),
         ];
 
-        // Process headers, cookies, etc. Done the same way as in RequestIntegration, but using Yii staff.
+        // Process headers, cookies, etc. Done the same way as in RequestIntegration, but using Yii's stuff.
         /** @see \Sentry\Integration\RequestIntegration */
         if ($this->options->shouldSendDefaultPii()) {
             $headers = $request->getHeaders();
@@ -164,10 +164,12 @@ class Integration extends BaseObject implements IntegrationInterface
         $result = [];
 
         foreach ($headers as $header => $value) {
+            // Strip headers
             if (\in_array(strtolower($header), $this->stripHeaders, true)) {
                 continue;
             }
 
+            // Check fo PII in headers
             if (\in_array(strtolower($header), $this->piiHeaders, true)) {
                 $result[$header] = $this->piiReplaceText;
             } else {
