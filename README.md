@@ -13,10 +13,11 @@ The preferred way to install this package is through [composer](http://getcompos
 composer require olegtsvetkov/yii2-sentry:^1.0
 ```
 
-Package doesn't provide any HTTP transport out of the box. To install package with a recommended HTTP client do:
+Package doesn't provide any HTTP transport out of the box. To install package with a recommended HTTP client use special 
+metapackage:
 
 ```bash
-composer require olegtsvetkov/yii2-sentry:^1.0 php-http/curl-client:^1.0|^2.0 http-interop/http-factory-guzzle:^1.0
+composer require olegtsvetkov/yii2-sentry-curl-client:^1.0
 ```
 
 ## Basic Usage
