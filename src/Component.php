@@ -35,10 +35,6 @@ class Component extends \yii\base\Component implements BootstrapInterface
         Integration::class,
         ErrorListenerIntegration::class,
     ];
-    /**
-     * @var bool
-     */
-    public $shouldStripPii = true;
 
     /**
      * @var HubInterface
