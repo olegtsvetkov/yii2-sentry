@@ -35,6 +35,10 @@ class Component extends \yii\base\Component implements BootstrapInterface
         Integration::class,
         ErrorListenerIntegration::class,
     ];
+    /**
+     * @var string
+     */
+    public $appBasePath = '@app';
 
     /**
      * @var HubInterface
@@ -45,7 +49,7 @@ class Component extends \yii\base\Component implements BootstrapInterface
     {
         parent::init();
 
-        $basePath = \Yii::getAlias('@root');
+        $basePath = \Yii::getAlias($this->appBasePath);
 
         $options = new Options(array_merge([
             'dsn' => $this->dsn,
