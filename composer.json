@@ -18,6 +18,9 @@
         "sentry/sentry": "^2.0.1",
         "yiisoft/yii2": "~2.0.14"
     },
+    "require-dev": {
+        "php-http/mock-client": "^1.0"
+    },
     "suggest": {
         "php-http/curl-client": "Recommended HTTP client for Sentry SDK",
         "http-interop/http-factory-guzzle": "Recommended HTTP factory for Sentry SDK"
