@@ -22,7 +22,7 @@ composer require olegtsvetkov/yii2-sentry-curl-client:^1.0
 
 ## Basic Usage
 
-Add "sentry" component to application's config and configure log target as follows:
+Add "sentry" component to application's config and to bootstrapping, then configure log target as follows:
 
 ```php
 <?php
@@ -38,7 +38,7 @@ return [
     'components' => [
         'sentry' => [
             'class' => OlegTsvetkov\Yii2\Sentry\Component::class,
-            'dsn' => 'https://abcdefghijklmnopqrstuvwxyz123456:abcdefghijklmnopqrstuvwxyz123456@sentry.io/0000000',
+            'dsn' => 'https://abcdefghijklmnopqrstuvwxyz123456@sentry.io/0000000',
         ],
         
         'log' => [
