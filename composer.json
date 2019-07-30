@@ -16,7 +16,7 @@
     "require": {
         "php": "^7.1",
         "sentry/sentry": "^2.0.1",
-        "yiisoft/yii2": "~2.0.11"
+        "yiisoft/yii2": "~2.0.13"
     },
     "require-dev": {
         "php-http/mock-client": "^1.0"
