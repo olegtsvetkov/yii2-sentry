@@ -114,9 +114,9 @@ class Integration extends BaseObject implements IntegrationInterface
             $requestData['cookies'] = $request->getCookies();
             $requestData['headers'] = $headers->toArray();
 
-            $userContext = $event->getUserContext();
+            $userContext = $event->getUser();
 
-            if (null === $userContext->getIpAddress() && $headers->has('REMOTE_ADDR')) {
+            if (null !== $userContext && null === $userContext->getIpAddress() && $headers->has('REMOTE_ADDR')) {
                 $userContext->setIpAddress($headers->get('REMOTE_ADDR'));
             }
         } else {
@@ -138,9 +138,10 @@ class Integration extends BaseObject implements IntegrationInterface
                     $requestData['data'] = $rawBody;
                 }
 
-                $event->getExtraContext()->setData([
-                    'decodedParams' => $bodyParams,
-                ]);
+                $user = $event->getUser();
+                if (null !== $user) {
+                    $user->setMetadata('decodedParams', $bodyParams);
+                }
             }
         }
 
