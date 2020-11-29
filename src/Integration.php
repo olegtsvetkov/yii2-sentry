@@ -89,12 +89,12 @@ class Integration extends BaseObject implements IntegrationInterface
     protected function applyToEvent(Event $event): void
     {
         $request = \Yii::$app->getRequest();
-        
+
         // Skip if the current request is made via console.
         if ($request->isConsoleRequest) {
             return;
-        }        
-        
+        }
+
         $requestMethod = $request->getMethod();
 
         $requestData = [
