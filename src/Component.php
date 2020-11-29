@@ -7,6 +7,7 @@ use Sentry\Breadcrumb;
 use Sentry\ClientBuilder;
 use Sentry\Integration\ErrorListenerIntegration;
 use Sentry\Options;
+use Sentry\SentrySdk;
 use Sentry\State\Hub;
 use Sentry\State\HubInterface;
 use Sentry\State\Scope;
@@ -84,9 +85,9 @@ class Component extends \yii\base\Component implements BootstrapInterface
         /** @var ClientBuilder $builder */
         $builder = \Yii::$container->get(ClientBuilder::class, [$options]);
 
-        Hub::setCurrent(new Hub($builder->getClient()));
+        SentrySdk::setCurrentHub(new Hub($builder->getClient()));
 
-        $this->hub = Hub::getCurrent();
+        $this->hub = SentrySdk::getCurrentHub();
     }
 
     /**

@@ -6,7 +6,7 @@ namespace OlegTsvetkov\Yii2\Sentry;
 use Sentry\Event;
 use Sentry\Integration\IntegrationInterface;
 use Sentry\Options;
-use Sentry\State\Hub;
+use Sentry\SentrySdk;
 use Sentry\State\Scope;
 use yii\base\BaseObject;
 
@@ -74,7 +74,7 @@ class Integration extends BaseObject implements IntegrationInterface
     public function setupOnce(): void
     {
         Scope::addGlobalEventProcessor(function (Event $event): Event {
-            $self = Hub::getCurrent()->getIntegration(self::class);
+            $self = SentrySdk::getCurrentHub()->getIntegration(self::class);
 
             if (!$self instanceof self) {
                 return $event;
